@@ -96,18 +96,26 @@ class YouTubeAPI:
         self.listbase = "https://youtube.com/playlist?list="
         self.reg = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
 
+        self.Track = Track
 
+class Track:
+    def __init__(self, data):
+        self.title = data["title"]
+        self.id = data["id"]
+        self.duration = data["duration"]
+        self.url = data["url"]
+        self.file_path = None
+        
     async def search(self, query: str, *args, video: bool = False):
         results = VideosSearch(query, limit=1)
         data = (await results.next())["result"][0]
     
-        return {
+        return self.Track({
             "title": data["title"],
             "id": data["id"],
             "duration": data["duration"],
-            "thumbnail": data["thumbnails"][0]["url"].split("?")[0],
             "url": data["link"],
-        }
+        })
     
     async def exists(self, link: str, videoid: Union[bool, str] = None):
         if videoid:
