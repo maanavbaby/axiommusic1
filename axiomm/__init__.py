@@ -52,7 +52,7 @@ lang = Language()
 from axiomm.core.telegram import Telegram
 from axiomm.core.youtube import YouTube
 tg = Telegram()
-yt = YouTube()
+yt = YouTube
 
 from axiomm.helpers import Queue, Thumbnail
 queue = Queue()
