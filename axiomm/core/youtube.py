@@ -96,6 +96,19 @@ class YouTubeAPI:
         self.listbase = "https://youtube.com/playlist?list="
         self.reg = re.compile(r"\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])")
 
+
+    async def search(self, query: str, *args, video: bool = False):
+    results = VideosSearch(query, limit=1)
+    data = (await results.next())["result"][0]
+
+    return {
+        "title": data["title"],
+        "id": data["id"],
+        "duration": data["duration"],
+        "thumbnail": data["thumbnails"][0]["url"].split("?")[0],
+        "url": data["link"],
+    }
+    
     async def exists(self, link: str, videoid: Union[bool, str] = None):
         if videoid:
             link = self.base + link
