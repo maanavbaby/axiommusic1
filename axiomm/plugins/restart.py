@@ -10,7 +10,7 @@ import asyncio
 
 from pyrogram import filters, types
 
-from axiom import app, db, lang, stop
+from axiomm import app, db, lang, stop
 
 
 @app.on_message(filters.command(["logs", "fek"]) & app.sudoers)
