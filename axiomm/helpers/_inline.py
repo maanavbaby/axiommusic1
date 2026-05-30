@@ -7,7 +7,14 @@ from pyrogram import types
 
 from axiomm import app, config, lang
 from axiomm.core.lang import lang_codes
+import random
 
+
+_STYLES = [
+    enums.ButtonStyle.PRIMARY,
+    enums.ButtonStyle.SUCCESS,
+    enums.ButtonStyle.DANGER,
+]
 
 class Inline:
     def __init__(self):
@@ -139,14 +146,14 @@ class Inline:
             [
                 self.ikb(
                     text=lang["add_me"],
-                    url=f"https://t.me/{app.username}?startgroup=true",
+                    url=f"https://t.me/{app.username}?startgroup=true", style=_rs(), 
                 )
             ],
-            [self.ikb(text=lang["help"], callback_data="help")],
-            [self.ikb(text=lang["Antidote"], url="https://t.me/antidote_69")],
+            [self.ikb(text=lang["help"], callback_data="help", style=_rs())],
+            [self.ikb(text=lang["Antidote"], url="https://t.me/antidote_69", style=_rs())],
             [
-                self.ikb(text=lang["support"], url=config.SUPPORT_CHAT),
-                self.ikb(text=lang["channel"], url=config.SUPPORT_CHANNEL),
+                self.ikb(text=lang["support"], url=config.SUPPORT_CHAT, style=_rs()),
+                self.ikb(text=lang["channel"], url=config.SUPPORT_CHANNEL, style=_rs()),
             ],
         ]
         else:
