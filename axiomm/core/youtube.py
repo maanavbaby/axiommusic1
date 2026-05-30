@@ -277,4 +277,4 @@ class YouTubeAPI:
             return None, False
 
 
-YouTube = YouTubeAPI()
+youtube_client = YouTubeAPI()
