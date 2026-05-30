@@ -50,10 +50,10 @@ from axiomm.core.lang import Language
 lang = Language()
 
 from axiomm.core.telegram import Telegram
-from axiomm.core.youtube import YouTube
+from axiomm.core.youtube import YouTubeAPI
 
 tg = Telegram()
-yt = YouTube
+yt = YouTubeAPI()
 
 from axiomm.helpers import Queue, Thumbnail
 queue = Queue()
